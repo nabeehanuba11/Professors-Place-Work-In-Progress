@@ -18,13 +18,15 @@ const ViewIndividualCurriculum = props =>{
     const [title,setTitle] = useState('')
     const [curr,setCurriculum] = useState('')
     const [professor,setProfessor] = useState('')
+    const [fileName,setFileName] = useState('')
 
     useEffect(()=>{
         axios.get(`/api/curriculum/${props.match.params.id}`)
         .then(res=>[
             setTitle(res.data.title),
             setCurriculum(res.data.curr),
-            setProfessor(res.data.professor)
+            setProfessor(res.data.professor),
+            setFileName(res.data.image)
         ])
         .catch(err=>console.log(err))
     }, [])
@@ -32,6 +34,7 @@ const ViewIndividualCurriculum = props =>{
         <MainContainer>
             {!title||!curr||!professor ? (<img src={spinner} alt="loading"></img>) :(
                 <>
+            <img src={`/uploads/${fileName}`} alt="Image" style={{width:'40%', margin: '0 auto', display: 'flex'}}/>
             <h2>{title}</h2>
             <p>{curr}</p>
             <p className="badge badge-secondary">{professor}</p>

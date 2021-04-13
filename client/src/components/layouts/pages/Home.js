@@ -47,7 +47,7 @@ const Home = ({posts})  => {
             
             <div class="col-sm-6" key={key}>
             <div class="card"  style={styling}>
-            <img class="card-img-top" src={`/uploads/${curriculum.image}`} alt="Card image cap" style={{width:'35rem'}}/>
+            <img class="card-img-top" src={`/uploads/${curriculum.image}`} alt="Card image cap" style={{width:'35rem', height:'25rem'}}/>
               <div class="card-body">
                 <Link to={{
                           pathname:`/api/curriculum/${curriculum._id}`

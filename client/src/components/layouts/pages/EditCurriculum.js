@@ -17,19 +17,29 @@ const EditCurriculum = props =>{
     const [curr,setCurriculum] = useState('')
     const [professor,setProfessor] = useState('')
     const [message,setMessage] = useState('')
+    const [fileName,setFileName] = useState('')
 
+    const onChangeFile = e =>{
+        setFileName(e.target.files[0])
+    }
 
     const changeOnClick = e => {
         e.preventDefault()
-        const curriculum = {
+
+        /**const curriculum = {
             title,
             curr,
             professor
-        }
+        }*/
+        const formData = new FormData()
+        formData.append("title",title)
+        formData.append("curr",curr)
+        formData.append("professor",professor)
+        formData.append("image",fileName)
         setTitle('')
         setCurriculum('')
         setProfessor('')
-        axios.put(`/api/curriculum/update/${props.match.params.id}`, curriculum)
+        axios.put(`/api/curriculum/update/${props.match.params.id}`, formData)
         .then(res=>setMessage(res.data))
         .catch(err=>console.log(err))
     }
@@ -38,7 +48,8 @@ const EditCurriculum = props =>{
         .then(res=>[
             setTitle(res.data.title),
             setCurriculum(res.data.curr),
-            setProfessor(res.data.professor)
+            setProfessor(res.data.professor),
+            setFileName(res.data.image)
         ])
         .catch(err=>console.log(err))
     }, [props])
@@ -59,6 +70,11 @@ const EditCurriculum = props =>{
                 <div className="form-group">
                     <label htmlFor="curr">Curriculum</label>
                     <textarea className="form-control" value={curr} onChange={e=>setCurriculum(e.target.value)} rows="3"></textarea>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="file">Choose Curriculum Image</label>
+                    <input type="file" fileName="image" className="form-control-file" onChange={onChangeFile}></input>
+
                 </div>
                 <button type="submit" className="btn btn-primary">Edit Curriculum</button>
                 </form>
