@@ -1,0 +1,5 @@
+{
+    "mongoURI":"mongodb+srv://nnuba:nnuba@cluster0.dtjmz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "mongoURI2":"mongodb+srv://nnuba:nnuba@cluster0.dtjmz.mongodb.net/Curriculum?retryWrites=true&w=majority",
+    "SecretKey": "Secret"
+}
