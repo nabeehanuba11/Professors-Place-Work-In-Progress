@@ -34,10 +34,10 @@ const ViewIndividualCurriculum = props =>{
         <MainContainer>
             {!title||!curr||!professor ? (<img src={spinner} alt="loading"></img>) :(
                 <>
-            <img src={`/uploads/${fileName}`} alt="Image" style={{width:'40%', margin: '0 auto', display: 'flex'}}/>
+            <img src={`/uploads/${fileName}`} alt="Image" style={{width:'20%', margin: '0 auto', display: 'flex'}}/>
             <h2>{title}</h2>
-            <p>{curr}</p>
-            <p className="badge badge-secondary">{professor}</p>
+            <p>{professor}</p>
+            <p style={{margin: '0 20%'}}>{curr}</p>
             <Link to="/curriculum" type="submit" className="btn btn-primary">Back to Curriculum</Link>
             </>)}
         </MainContainer>
@@ -48,19 +48,27 @@ export default ViewIndividualCurriculum
 
 //Main Component
 const MainContainer = styled.div`
+display: flex;
+flex-direction: column;
+justify-items: center;
+align-items: center;
 
 h2{
     text-align: center;
     font-weight: 900;
 }
-
+p{
+    text-align: center;
+}
 img{
     width: 1.5rem;
     display: block;
     margin: auto;
 }
 .btn-primary{
-    margin-top: 10rem;
+    margin-top: 5rem;
     border:none;
+    text-align: center;
 }
 `;
+

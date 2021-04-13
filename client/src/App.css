@@ -39,9 +39,10 @@
 }
 
 .auth-wrapper {
-  text-align: left;
-  margin-top: 1%;
-  margin: auto 10%;
+  flex-direction: column;
+  margin:1% 10%;
+  display: flex;
+  align-items: center;
 }
 
 

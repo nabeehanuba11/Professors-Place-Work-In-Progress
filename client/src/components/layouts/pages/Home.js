@@ -121,7 +121,11 @@ const Home = ({posts})  => {
           </div> */
 //Main Container
 const MainContainer = style.div`
-margin: 7rem 0;
+
+display: flex;
+flex-direction: column;
+justify-items: center;
+align-items: center;
 
 img{
   width: 5rem;
