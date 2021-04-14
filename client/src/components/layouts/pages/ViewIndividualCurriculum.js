@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import spinner from './spinner.gif'
 import {Link} from 'react-router-dom'
 import AuthContext from '../auth/AuthContext'
+import Comments from './Comment'
 const ViewIndividualCurriculum = props =>{
     const authContext = useContext(AuthContext)
     const {isAuthenticated, loadUser} = authContext
@@ -38,9 +39,12 @@ const ViewIndividualCurriculum = props =>{
             <h2>{title}</h2>
             <p>{professor}</p>
             <p style={{margin: '0 20%'}}>{curr}</p>
+            <Comments />
             <Link to="/curriculum" type="submit" className="btn btn-primary">Back to Curriculum</Link>
             </>)}
+
         </MainContainer>
+        
     )
 }
 

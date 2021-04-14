@@ -52,4 +52,5 @@ router.delete('/:id', (req,res)=>{
     CurriculumModel.findByIdAndDelete(req.params.id)
     .then(()=>res.json("Curriculum is deleted")).catch(err=>res.status(400).json(`Error: ${err}`))
 })
+
 module.exports=router

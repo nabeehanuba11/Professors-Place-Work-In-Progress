@@ -15,7 +15,7 @@ const Profile = props => {
     }
   }, [isAuthenticated, props.history])
   return (
-    <div className="card border-dark mb-3" style={{width:'40%', margin: '0 auto', display: 'flex'}}>
+    <div className="card border-dark mb-3" style={{width:'60%',margin: '10% auto', display: 'flex'}}>
   <img className="card-img-top" src={profilePic} alt="Card image cap"/>
   <div className="card-body">
     <h2 className="card-title">Name: {user && user.name}</h2>
